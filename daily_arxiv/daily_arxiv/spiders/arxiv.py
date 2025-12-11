@@ -8,6 +8,9 @@ class ArxivSpider(scrapy.Spider):
         categories = os.environ.get("CATEGORIES", "cs.CV")
         categories = categories.split(",")
         categories = list(map(str.strip, categories))
+        # Allow limiting how many papers are fetched per run; 0/unset = unlimited
+        self.max_paper = int(os.environ.get("MAX_PAPER", "10"))
+        self.paper_count = 0
         self.start_urls = [
             f"https://arxiv.org/list/{cat}/new" for cat in categories
         ]  # 起始URL（计算机科学领域的最新论文）
@@ -28,6 +31,10 @@ class ArxivSpider(scrapy.Spider):
             ):
                 continue
 
+            if self.max_paper and self.paper_count >= self.max_paper:
+                break
+
+            self.paper_count += 1
             yield {
                 "id": paper.css("a[title='Abstract']::attr(href)")
                 .get()

@@ -18,8 +18,9 @@ Otherwise, you can directly use this repo in https://dw-dengwei.github.io/daily-
    1. `CATEGORIES`: separate the categories with ",", such as "cs.CL, cs.CV"
    2. `LANGUAGE`: such as "Chinese" or "English"
    3. `MODEL_NAME`: such as "deepseek-chat"
-   4. `EMAIL`: your email for push to github
-   5. `NAME`: your name for push to github
+   4. `MAX_PAPER`: limit papers fetched per run, e.g. "50" (optional)
+   5. `EMAIL`: your email for push to github
+   6. `NAME`: your name for push to github
 7. Go to your-own-repo -> Actions -> arXiv-daily-ai-enhanced
 8. You can manually click **Run workflow** to test if it works well (it may takes about one hour). 
 By default, this action will automatically run every day
