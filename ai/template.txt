@@ -1,4 +1,4 @@
-Please analyze the following abstract of papers. 
+Please analyze the following abstract of papers and also translate the abstract into full Chinese in the field `summary_cn`. 
 
 Content:
 {content}

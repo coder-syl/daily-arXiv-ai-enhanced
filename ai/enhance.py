@@ -85,7 +85,8 @@ def main():
                  "motivation": "Error",
                  "method": "Error",
                  "result": "Error",
-                 "conclusion": "Error"
+                 "conclusion": "Error",
+                 "summary_cn": "Error"
             }
         except Exception as e:
             print(f"{d['id']} has a connection/API error: {e}", file=sys.stderr)
@@ -99,7 +100,8 @@ def main():
                  "motivation": "Error",
                  "method": "Error",
                  "result": "Error",
-                 "conclusion": "Error"
+                 "conclusion": "Error",
+                 "summary_cn": "Error"
             }
         with open(args.data.replace('.jsonl', f'_AI_enhanced_{language}.jsonl'), "a") as f:
             f.write(json.dumps(d) + "\n")

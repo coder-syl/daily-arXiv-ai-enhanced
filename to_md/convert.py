@@ -43,6 +43,7 @@ if __name__ == "__main__":
                     title=item["title"],
                     authors=",".join(item["authors"]),
                     summary=item["summary"],
+                    summary_cn=item.get("AI", {}).get("summary_cn", item["summary"]),
                     url=item['abs'],
                     tldr=item['AI']['tldr'],
                     motivation=item['AI']['motivation'],

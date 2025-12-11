@@ -18,4 +18,6 @@ Conclusion: {conclusion}
 
 Abstract: {summary}
 
+Abstract (中文翻译): {summary_cn}
+
 </details>
