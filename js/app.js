@@ -229,6 +229,7 @@ function parseJsonlData(jsonlText, date) {
       }
       
       const summary = paper.AI && paper.AI.tldr ? paper.AI.tldr : paper.summary;
+      const summaryCn = paper.AI && paper.AI.summary_cn ? paper.AI.summary_cn : '';
       
       result[primaryCategory].push({
         title: paper.title,
@@ -236,6 +237,7 @@ function parseJsonlData(jsonlText, date) {
         authors: Array.isArray(paper.authors) ? paper.authors.join(', ') : paper.authors,
         category: allCategories,
         summary: summary,
+        summary_cn: summaryCn,
         details: paper.summary || '',
         date: date,
         id: paper.id,
@@ -386,6 +388,7 @@ function showPaperDetails(paper) {
   modalTitle.textContent = paper.title;
   
   const abstractText = paper.details || '';
+  const abstractCn = paper.summary_cn || '';
   
   const categoryDisplay = paper.allCategories ? 
     paper.allCategories.join(', ') : 
@@ -407,7 +410,8 @@ function showPaperDetails(paper) {
         ${paper.conclusion ? `<div class="paper-section"><h4>Conclusion</h4><p>${paper.conclusion}</p></div>` : ''}
       </div>
       
-      ${abstractText ? `<h3>Abstract</h3><p class="original-abstract">${abstractText}</p>` : ''}
+      ${abstractCn ? `<h3>Abstract (中文)</h3><p class="original-abstract">${abstractCn}</p>` : ''}
+      ${abstractText ? `<h3>Abstract (Original)</h3><p class="original-abstract">${abstractText}</p>` : ''}
     </div>
   `;
   
